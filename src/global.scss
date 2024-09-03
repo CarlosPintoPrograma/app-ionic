@@ -35,3 +35,41 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+
+.boton {
+    --background: #130594;
+    --color: #FFFFFF;
+    height: 50px;
+}
+
+.barra {
+    --background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(1,1,105,1) 35%, rgba(0,212,255,1) 100%);
+    --color: #FFFFFF;
+
+}
+
+.fondo {
+    --background: #928b8b;
+
+}
+
+.input {
+    --background: #ffffff;
+    --color: #000000;
+    margin-top: 3,5px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #130594;
+    border-radius: 5px;
+    
+}
+
+.item-warning {
+    --background: #ffbb00;
+    --color: #000000;
+    font-weight: bold;
+    margin-top: 10px;
+}
