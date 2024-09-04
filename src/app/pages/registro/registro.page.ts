@@ -8,8 +8,10 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class RegistroPage implements OnInit {
 
-  rUsuario: string='';
-  rPass: string='';
+  
+  rusuario: string = '';
+  rpass: string = '';
+  rnombre: string = '';
 
   isAlertOpen = false;
   alertButtons = ['OK'];
@@ -17,16 +19,18 @@ export class RegistroPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+
   }
-  
 
   registrar() {
-    if(this.rUsuario !== null && this.rPass !== null) {
+    
+    if(this.rusuario !== null && this.rpass !== null && this.rnombre !== null) {
 
       let parametros: NavigationExtras = {
         state: {
-          user: this.rUsuario,
-          pass: this.rPass
+          user: this.rusuario,
+          pass: this.rpass,
+          name: this.rnombre
         }
       }
 
@@ -35,6 +39,9 @@ export class RegistroPage implements OnInit {
       this.isAlertOpen = true;
     }
   }
+
+  
+
   
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;

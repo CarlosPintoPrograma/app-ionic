@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Restablecer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo ion-padding">
+
+ 
+
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="resetuser" label="Usuario" labelPlacement="floating" placeholder="Usuario"></ion-input>
+  </ion-item>
+
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="resetpass" type="password" label="Contraseña" labelPlacement="floating" placeholder="Password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" class="degradado ion-margin-top button" (click)="reset()"> restablecer </ion-button>
+  
+
+</ion-content>

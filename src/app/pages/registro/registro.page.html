@@ -7,11 +7,15 @@
 <ion-content [fullscreen]="true" class="fondo ion-padding">
 
   <ion-item class="input" lines="none">
-    <ion-input [(ngModel)]="rUsuario" label="Usuario" labelPlacement="floating" placeholder="Usuario"></ion-input>
+    <ion-input [(ngModel)]="rnombre" label="Nombre" labelPlacement="floating" placeholder="Nombre"></ion-input>
   </ion-item>
 
   <ion-item class="input" lines="none">
-    <ion-input [(ngModel)]="rPass" type="password" label="Contraseña" labelPlacement="floating" placeholder="Password"></ion-input>
+    <ion-input [(ngModel)]="rusuario" label="Usuario" labelPlacement="floating" placeholder="Usuario"></ion-input>
+  </ion-item>
+
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="rpass" type="password" label="Contraseña" labelPlacement="floating" placeholder="Password"></ion-input>
   </ion-item>
 
   <ion-button expand="block" class="degradado ion-margin-top button" (click)="registrar()"> Registrar </ion-button>

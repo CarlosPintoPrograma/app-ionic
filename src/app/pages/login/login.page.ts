@@ -10,9 +10,11 @@ export class LoginPage implements OnInit {
 
   mdl_user: string = '';
   mdl_pass: string = '';
+  mdl_name: string = '';
 
-  user: string = '';
-  pass: string = '';
+
+  usuario: string = '';
+  contrasena: string = '';
   
 
   warningVisible: boolean = false;
@@ -33,38 +35,48 @@ export class LoginPage implements OnInit {
     let parametros = this.router.getCurrentNavigation();
 
     if(parametros?.extras.state) {
-      this.user = parametros?.extras.state['user'];
-      this.pass = parametros?.extras.state['pass'];
+      this.mdl_user = parametros?.extras.state['user'];
+      this.mdl_pass = parametros?.extras.state['pass'];
+      this.mdl_name = parametros?.extras.state['name'];
     }
-    console.log(this.user)
+    console.log(this.mdl_user);
+    console.log(this.mdl_pass);
+    console.log(this.mdl_name);
   }
 
-  login() {
+  ingresar() {
     
     this.spinnerVisible = true;
     this.warningVisible = false;
 
     setTimeout(() => {
-      if(this.mdl_user == this.user && this.mdl_pass == this.pass){
-
+      // Verifica que los campos no estén vacíos
+      if (this.mdl_user.trim() == '' || this.mdl_pass.trim() == '') {
+        this.warningVisible = true;
+        this.isToastOpen = false;
+        this.mensaje = "Por favor, ingrese usuario y contraseña";
+        console.log(this.mensaje);
+        
+      } else if (this.mdl_user == this.usuario && this.mdl_pass == this.contrasena) {
         let parametros: NavigationExtras = {
           state: {
+            name: this.mdl_name,
             user: this.mdl_user,
             pass: this.mdl_pass
+            
           }
         }
-        this.router.navigate(['principal'], parametros)
+        this.router.navigate(['principal'], parametros);
       } else {
         this.warningVisible = true;
         this.isToastOpen = false;
-        this.mensaje = "Credenciales Inválidas"
-        
-        console.log('credenciales incorrectas')
+        this.mensaje = "Credenciales Inválidas";
+        console.log(this.mensaje);
       }
 
       this.spinnerVisible = false;
     }, 2000); 
-  }
+}
 
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
@@ -72,6 +84,10 @@ export class LoginPage implements OnInit {
 
   registro() {
     this.router.navigate(['registro']);
+  }
+
+  restablecer() {
+    this.router.navigate(['restablecer']);
   }
 
 }
